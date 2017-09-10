@@ -1,0 +1,29 @@
+{
+  "name": "kodo-website",
+  "version": "1.0.0",
+  "description": "next",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeCKodo/kodo-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeCKodo/kodo-website/issues"
+  },
+  "homepage": "https://github.com/MeCKodo/kodo-website#readme",
+  "dependencies": {
+    "next": "^3.2.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.2.0",
+    "styled-components": "^2.1.2"
+  }
+}
