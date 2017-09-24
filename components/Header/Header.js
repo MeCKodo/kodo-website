@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Nav from "./Nav";
 
 const Header = styled.header`
   position: fixed;
@@ -9,11 +10,16 @@ const Header = styled.header`
   color: #000;
   z-index: 9999;
   transition: all 0.3s;
-  &:before {
-    content: "adf ";
-  }
+
+  background: hsla(0, 0%, 100%, 0.86);
+  box-shadow: 0 0 25px #ccc;
+  color: #999;
 `;
 
 export default function() {
-  return <Header>asd</Header>;
+  return (
+    <Header>
+      <Nav />
+    </Header>
+  );
 }

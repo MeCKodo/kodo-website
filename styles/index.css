@@ -94,6 +94,9 @@ textarea:focus {
 a {
   color: #333;
 }
+a:hover {
+  cursor: pointer;
+}
 img {
   display: block;
   width: 100%;

@@ -1,4 +1,4 @@
-import React from "react";
+import { Component } from "react";
 import styled from "styled-components";
 import Header from "../components/Header/Header";
 
@@ -7,9 +7,13 @@ const Title = styled.h1`
   font-size: 50px;
 `;
 
-export default () => (
-  <div>
-    <Header />
-    <Title>My page</Title>
-  </div>
-);
+export default class extends Component {
+  render() {
+    return (
+      <div id="home">
+        <Header />
+        <Title>My page</Title>
+      </div>
+    );
+  }
+}
