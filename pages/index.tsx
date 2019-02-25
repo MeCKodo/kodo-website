@@ -13,8 +13,8 @@ export default class extends Component {
   render() {
     return (
       <div id="home">
-        {/* <Header /> */}
-        {/* <Banner /> */}
+        <Header />
+        <Banner />
         <Title>My page</Title>
       </div>
     );
