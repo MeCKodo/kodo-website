@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 // import Header from "../components/Header/Header";
 // import Banner from "../components/Banner/Banner";
+import Article from "../components/Article/Article";
 
 const Title = styled.h1`
   color: red;
@@ -22,6 +23,7 @@ export default class extends Component {
       <div id="home">
         {/* <Header /> */}
         {/* <Banner /> */}
+        <Article />
         <Title>My page</Title>
       </div>
     );
