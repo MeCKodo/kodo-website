@@ -1,6 +1,6 @@
-import { Component } from "react";
-import NextLink from "next/link";
-import styled from "styled-components";
+import { Component } from 'react';
+import NextLink from 'next/link';
+import styled from 'styled-components';
 
 const Nav = styled.nav`
   position: relative;
@@ -29,6 +29,7 @@ const MyAvatar = styled.div`
   position: absolute;
   top: 8px;
   right: 0;
+  color: #fff;
   & figure {
     height: 50px;
     width: 50px;
@@ -54,7 +55,7 @@ const MyQrcode = styled.div`
   width: 200px;
   padding: 15px 0;
   border-radius: 2px;
-  display: ${props => (props.showQrcode ? "block" : "none")};
+  display: ${props => (props.showQrcode ? 'block' : 'none')};
   box-shadow: 0 0 21px rgba(0, 0, 0, 0.28);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -98,13 +99,12 @@ class MyInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showQrcode: false
+      showQrcode: false,
     };
   }
   mouseOver = () => {
-    console.log(this);
     this.setState(prevState => ({
-      showQrcode: !prevState.showQrcode
+      showQrcode: !prevState.showQrcode,
     }));
   };
   render() {
@@ -117,7 +117,7 @@ class MyInfo extends Component {
         <span>订阅我</span>
         <Qrcode
           showQrcode={this.state.showQrcode}
-          qrcode="http://7xim8z.com1.z0.glb.clouddn.com/my-qrcode.jpg"
+          qrcode="https://wx2.sinaimg.cn/mw690/a447e8fdgy1fy60dwpfclj20a309pgoh.jpg"
         />
       </MyAvatar>
     );

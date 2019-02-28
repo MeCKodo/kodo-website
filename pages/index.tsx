@@ -2,8 +2,8 @@
 import { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-// import Header from "../components/Header/Header";
-// import Banner from "../components/Banner/Banner";
+import Header from "../components/Header/Header";
+import Banner from "../components/Banner/Banner";
 import Article from "../components/Article/Article";
 
 const Title = styled.h1`
@@ -21,8 +21,8 @@ export default class extends Component {
   render() {
     return (
       <div id="home">
-        {/* <Header /> */}
-        {/* <Banner /> */}
+        <Header />
+        <Banner />
         <Article />
         <Title>My page</Title>
       </div>

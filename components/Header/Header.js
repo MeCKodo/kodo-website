@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Nav from "./Nav";
+import styled from 'styled-components';
+import Nav from './Nav';
 
 const Header = styled.header`
   position: fixed;
@@ -10,9 +10,8 @@ const Header = styled.header`
   color: #000;
   z-index: 9999;
   transition: all 0.3s;
-
-  background: hsla(0, 0%, 100%, 0.86);
-  box-shadow: 0 0 25px #ccc;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px #868686;
   color: #999;
 `;
 
