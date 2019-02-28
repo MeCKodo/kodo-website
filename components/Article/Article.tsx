@@ -1,12 +1,15 @@
-import React from "react";
-import { ArticleWrapper, Time, Tags, Title, ReadMore, Content } from "./style";
+import React from 'react';
 
-class Article extends React.Component {
+import { ArticleWrapper, Time, Tags, Title, ReadMore, Content } from './style';
+
+class Article extends React.Component<any> {
   render() {
+    const { title, ctime } = this.props;
+
     return (
       <ArticleWrapper>
-        <Time>2018年01月01日</Time>
-        <Title>title</Title>
+        <Time>{ctime}</Time>
+        <Title>{title}</Title>
         <Tags>tags</Tags>
         <Content>sdfsdfsdfsdf</Content>
         <ReadMore>
