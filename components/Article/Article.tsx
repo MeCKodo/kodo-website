@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { ArticleWrapper, Time, Tags, Title, ReadMore, Content } from './style';
+import { ArticleWrapper, Time, Tags, Title, ReadMore, Content } from "./style";
 
 class Article extends React.Component<any> {
   render() {
@@ -20,4 +20,4 @@ class Article extends React.Component<any> {
   }
 }
 
-export default Article;
+export { Article };
