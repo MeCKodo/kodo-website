@@ -10,11 +10,11 @@ type Props = {
 };
 
 export default class extends Component<Props> {
-  static async getInitialProps(a: any, b: any, c: any) {
+  static async getInitialProps() {
     // eslint-disable-next-line no-undef
     // const res = await axios.get("http://localhost:3001/articles?page=1");
     // const { articles } = res.data;
-    console.log(c, "------c");
+    // console.log(c, "------c");
     return {
       article: {}
     };
