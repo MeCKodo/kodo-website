@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 
 // import { NextContext } from "next";
 import { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Article, ArticleWrapper } from "../components/Article";
 
 type Props = {
@@ -10,12 +10,13 @@ type Props = {
 };
 
 export default class extends Component<Props> {
-  static async getInitialProps() {
+  static async getInitialProps(a: any, b: any, c: any) {
     // eslint-disable-next-line no-undef
-    const res = await axios.get("http://localhost:3001/articles?page=1");
-    const { articles } = res.data;
+    // const res = await axios.get("http://localhost:3001/articles?page=1");
+    // const { articles } = res.data;
+    console.log(c, "------c");
     return {
-      article: articles[0]
+      article: {}
     };
   }
 
@@ -24,7 +25,8 @@ export default class extends Component<Props> {
     console.log(article, "---");
     return (
       <ArticleWrapper>
-        <Article {...article} />;
+        <Article {...article} />
+        sdfsdfsdfsdf
       </ArticleWrapper>
     );
   }

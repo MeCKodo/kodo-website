@@ -1,6 +1,6 @@
 // import { NextContext } from "next";
 import { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Article, ArticleWrapper } from "../components/Article";
 
 type Props = {
@@ -11,11 +11,11 @@ type Props = {
 export default class extends Component<Props> {
   static async getInitialProps() {
     // eslint-disable-next-line no-undef
-    const res = await axios.get("http://localhost:3001/articles?page=1");
-    const { articles, total } = res.data;
+    // const res = await axios.get("http://localhost:3000/articles?page=1");
+    // const { articles, total } = res.data;
     return {
-      total,
-      articles
+      total: 0,
+      articles: [{}]
     };
   }
 
