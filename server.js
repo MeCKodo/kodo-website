@@ -11,21 +11,20 @@ app.prepare().then(() => {
   const server = new Koa();
   const router = new Router();
 
-  // router.get("/detail", async ctx => {
-  //   await app.render(ctx.req, ctx.res, "/a", ctx.query);
-  //   ctx.respond = false;
-  // });
-
-  router.get("/a", async ctx => {
-    await app.render(ctx.req, ctx.res, "/a", ctx.query);
-    ctx.respond = false;
+  router.get("/json", async ctx => {
+    // await app.render(ctx.req, ctx.res, "/a", ctx.query);
+    // ctx.respond = false;
+    ctx.body = { name: "123" };
   });
 
-  router.get("/b", async ctx => {
-    await app.render(ctx.req, ctx.res, "/b", ctx.query);
+  router.get("/detail", async ctx => {
+    await app.render(ctx.req, ctx.res, "/detail", ctx.query);
     ctx.respond = false;
   });
-
+  router.get("/", async ctx => {
+    await app.render(ctx.req, ctx.res, "/", ctx.query);
+    ctx.respond = false;
+  });
   router.get("*", async ctx => {
     await handle(ctx.req, ctx.res);
     ctx.respond = false;

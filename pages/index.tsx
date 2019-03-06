@@ -9,15 +9,17 @@ type Props = {
 };
 
 export default class extends Component<Props> {
-  static async getInitialProps() {
-    // eslint-disable-next-line no-undef
-    const res = await axios.get("http://localhost:3000/articles?page=1");
-    const { articles, total } = res.data;
-    console.log(articles, total);
-    return {
-      total: 0,
-      articles: [{}]
-    };
+  static async getInitialProps({ req }: any) {
+    const res = await axios.get("http://localhost:3001/articles?page=1");
+    // console.log(res.data);
+    const res1 = await axios.get("http://localhost:3000/json");
+    console.log(res1, "----1");
+    return res.data;
+
+    // return {
+    //   total: 0,
+    //   articles: [{}, {}, {}]
+    // };
   }
 
   render() {
