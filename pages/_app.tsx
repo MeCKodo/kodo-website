@@ -17,12 +17,12 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
+        <Header />
+        <Banner />
         <Main>
-          <Header />
-          <Banner />
           <Component {...pageProps} />
-          <Footer />
         </Main>
+        <Footer />
       </Container>
     );
   }
