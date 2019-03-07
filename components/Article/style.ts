@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ArticleWrapper = styled.article`
   position: relative;
   padding: 0 20px;
   margin: 40px auto;
-  max-width: 950px;
   background: #fff;
   text-align: center;
   box-shadow: 5px 5px 25px #dadada;

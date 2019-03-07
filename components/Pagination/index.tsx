@@ -16,6 +16,7 @@ const Button = styled.button`
   color: 333;
   border: 1px solid #18bc9c;
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 const Pages = styled.div`
@@ -45,7 +46,7 @@ class Pagination extends Component<Prop> {
       <Wrapper>
         <Button>上一页</Button>
         <Pages>
-          <input size={3} type="text" value="1" />
+          <input size={3} type="text" defaultValue="1" />
           <span>/</span>
           <div>10</div>
         </Pages>

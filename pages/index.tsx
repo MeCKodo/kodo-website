@@ -1,6 +1,5 @@
 // import { NextContext } from "next";
 import { Component } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
 import { Article, ArticleWrapper } from '../components/Article';
 import Pagination from '../components/Pagination';
@@ -9,11 +8,6 @@ type Props = {
   articles: any;
   total: number;
 };
-
-const Container = styled.main`
-  width: 90%;
-  margin: 0 auto;
-`;
 
 export default class extends Component<Props> {
   static async getInitialProps({ req }: any) {
@@ -33,14 +27,14 @@ export default class extends Component<Props> {
     const { articles } = this.props;
     console.log(articles, '---');
     return (
-      <Container>
+      <>
         <ArticleWrapper>
           {articles.map((article: any) => {
             return <Article key={article._id} {...article} />;
           })}
         </ArticleWrapper>
-        <Pagination />
-      </Container>
+        <Pagination total={44} />
+      </>
     );
   }
 }
