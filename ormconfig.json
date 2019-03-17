@@ -1,0 +1,10 @@
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "port": 27017,
+  "database": "test",
+  "synchronize": true,
+  "useNewUrlParser": true,
+  "entities": ["server/entity/*.ts"],
+  "logging": true
+}
