@@ -9,15 +9,31 @@ type Props = {
   total: number;
 };
 
-export default class extends Component<Props> {
+export default class extends Component<Props, Props> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      articles: [],
+      total: 0,
+    };
+  }
+
   static async getInitialProps() {
-    const res = await axios.get<Props>('http://localhost:3000/article/list/1');
+    const res = await await axios.get<Props>(
+      'http://localhost:3000/article/list?page=1&size=5',
+    );
     const { articles, total } = res.data;
 
     return {
       articles,
       total,
     };
+  }
+
+  async getArticles(page: number = 1, size: number = 15) {
+    return await axios.get<Props>(
+      `http://localhost:3000/article/list?page=${page}&size=${size}`,
+    );
   }
 
   render() {

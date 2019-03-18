@@ -9,8 +9,8 @@ class ArticleModel extends BaseModel<ArticleEntity> {
     super(ArticleEntity);
   }
 
-  async getArticleList(page: number) {
-    const articles = await this._getArticleList(page);
+  async getArticleList(page: number, size: number) {
+    const articles = await this._getArticleList(Number(page), Number(size));
     const total = await this.count();
     return {
       articles,
@@ -18,11 +18,11 @@ class ArticleModel extends BaseModel<ArticleEntity> {
     };
   }
 
-  private _getArticleList(page: number) {
+  private _getArticleList(page: number, size: number) {
     return this.db.find({
       select: ['ctime', 'title'],
       skip: (page - 1) * 5,
-      take: 5,
+      take: size,
       order: {
         ctime: 'DESC',
       },
