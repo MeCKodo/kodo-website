@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // import { NextContext } from "next";
-import { Component } from "react";
+import { Component } from 'react';
 // import axios from "axios";
-import { Article, ArticleWrapper } from "../components/Article";
+import { Article, ArticleWrapper } from '../components/Article';
 
 type Props = {
   article: any;
@@ -16,13 +16,13 @@ export default class extends Component<Props> {
     // const { articles } = res.data;
     // console.log(c, "------c");
     return {
-      article: {}
+      article: {},
     };
   }
 
   render() {
     const { article } = this.props;
-    console.log(article, "---");
+    console.log(article, '---');
     return (
       <ArticleWrapper>
         <Article {...article} />
