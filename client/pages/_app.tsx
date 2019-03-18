@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Header from '../components/Header/Header';
 import Banner from '../components/Banner/Banner';
 import Footer from '../components/Footer';
-import 'styles/index.css';
+import '@/styles/index.css';
 
 const Main = styled.main`
   width: 90%;
