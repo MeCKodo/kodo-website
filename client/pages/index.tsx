@@ -30,11 +30,16 @@ export default class extends Component<Props, Props> {
     };
   }
 
-  async getArticles(page: number = 1, size: number = 15) {
-    return await axios.get<Props>(
+  getArticles = async (page: number = 1, size: number = 15) => {
+    const res = await axios.get<Props>(
       `http://localhost:3000/article/list?page=${page}&size=${size}`,
     );
-  }
+    const { articles, total } = res.data;
+    this.setState({
+      articles,
+      total,
+    });
+  };
 
   render() {
     const { articles, total } = this.props;
@@ -46,7 +51,7 @@ export default class extends Component<Props, Props> {
             return <Article key={article.id} {...article} />;
           })}
         </ArticleWrapper>
-        <Pagination total={total} />
+        <Pagination onChange={this.getArticles} total={total} />
       </>
     );
   }
