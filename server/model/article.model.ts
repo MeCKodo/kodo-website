@@ -18,7 +18,7 @@ class ArticleModel extends BaseModel<ArticleEntity> {
     };
   }
 
-  _getArticleList(page: number) {
+  private _getArticleList(page: number) {
     return this.db.find({
       select: ['ctime', 'title'],
       skip: (page - 1) * 5,

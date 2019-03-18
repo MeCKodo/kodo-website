@@ -11,21 +11,18 @@ type Props = {
 
 export default class extends Component<Props> {
   static async getInitialProps() {
-    const res = await axios.get('http://localhost:3000/article/list/1');
-    // console.log(res.data);
-    // const res1 = await axios.get('http://localhost:3000/json');
-    // console.log(res1, '----1');
-    return res.data;
+    const res = await axios.get<Props>('http://localhost:3000/article/list/1');
+    const { articles, total } = res.data;
 
-    // return {
-    //   total: 0,
-    //   articles: [{}, {}, {}]
-    // };
+    return {
+      articles,
+      total,
+    };
   }
 
   render() {
-    const { articles } = this.props;
-    console.log(articles, '---');
+    const { articles, total } = this.props;
+    console.log(articles, total, '---');
     return (
       <>
         <ArticleWrapper>
@@ -33,7 +30,7 @@ export default class extends Component<Props> {
             return <Article key={article.id} {...article} />;
           })}
         </ArticleWrapper>
-        <Pagination total={44} />
+        <Pagination total={total} />
       </>
     );
   }
