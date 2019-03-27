@@ -22,10 +22,11 @@ app.prepare().then(() => {
       ctx.body = { name: '123' };
     });
 
-    router.get('/detail', async ctx => {
-      await app.render(ctx.req, ctx.res, '/detail', ctx.query);
+    router.get('/detail/:id', async ctx => {
+      await app.render(ctx.req, ctx.res, '/detail', ctx.params);
       ctx.respond = false;
     });
+
     router.get('/', async ctx => {
       await app.render(ctx.req, ctx.res, '/', ctx.query);
       ctx.respond = false;

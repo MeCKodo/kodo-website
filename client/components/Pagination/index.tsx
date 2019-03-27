@@ -78,20 +78,20 @@ class Pagination extends Component<Prop, State> {
   };
 
   render() {
-    const { current, totalPage } = this.state;
+    const { totalPage } = this.state;
     return (
       <Wrapper>
         <Button onClick={this.prevPage}>上一页</Button>
         <Pages>
-          <input
+          {/* <input
             size={3}
             type="text"
             onBlur={this.jumpPage}
             value={current}
             defaultValue={String(current)}
           />
-          <span>/</span>
-          <div>{totalPage}</div>
+          <span>/</span> */}
+          <div>共{totalPage}页</div>
         </Pages>
         <Button onClick={this.nextPage}>下一页</Button>
       </Wrapper>
