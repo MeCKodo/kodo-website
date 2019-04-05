@@ -1,7 +1,7 @@
 // import { NextContext } from "next";
 import { Component } from 'react';
 import axios from 'axios';
-import { Article, ArticleWrapper } from '../components/Article';
+import { Article, ArticleList, ReadMore } from '../components/Article';
 import Pagination from '../components/Pagination';
 
 type Props = {
@@ -49,15 +49,21 @@ export default class extends Component<Props, State> {
   render() {
     const { articlesState } = this.state;
     const { articles, total } = this.props;
-    console.log(articles, total, '---');
+    // console.log(articles, total, '--- render');
 
     return (
       <>
-        <ArticleWrapper>
+        <ArticleList>
           {(articlesState || articles).map((article: any) => {
-            return <Article key={article.id} {...article} />;
+            return (
+              <Article
+                after={<ReadMore objectId={article.id} as={article.urlAlias} />}
+                key={article.id}
+                {...article}
+              />
+            );
           })}
-        </ArticleWrapper>
+        </ArticleList>
         <Pagination onChange={this.getArticles} total={total} />
       </>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 import { NextContext } from 'next';
 import { Component } from 'react';
 // import axios from "axios";
-import { ArticleWrapper } from '../components/Article';
+import { Article } from '../components/Article';
 
 type Props = {
   article: any;
@@ -16,7 +16,7 @@ export default class extends Component<Props> {
     // const res = await axios.get("http://localhost:3001/articles?page=1");
     // const { articles } = res.data;
     // console.log(c, "------c");
-    console.log('???SDfsdfsdfsdfsdfs');
+    // console.log('???SDfsdfsdfsdfsdfs');
     return {
       article: {},
     };
@@ -25,6 +25,6 @@ export default class extends Component<Props> {
   render() {
     const { article } = this.props;
     console.log(article, '---', this.props);
-    return <ArticleWrapper>sdfsfd sdfsdfsdfsdf</ArticleWrapper>;
+    return <Article title="sdf" ctime="123" />;
   }
 }

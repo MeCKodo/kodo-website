@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ArticleWrapper = styled.article`
+const ArticleWrapper = styled.section`
   position: relative;
   padding: 0 20px;
   margin: 40px auto;
@@ -36,26 +36,10 @@ const Title = styled.h2`
   cursor: pointer;
 `;
 
-const Content = styled.section`
+const Content = styled.div`
   text-align: left;
   padding: 10px;
   font-size: 16px;
 `;
 
-const ReadMore = styled.footer`
-  padding: 25px 0 20px;
-  a {
-    display: inline-block;
-    color: #18bc9c;
-    cursor: pointer;
-    padding: 4px 20px;
-    border-radius: 5px;
-    border: 1px solid #18bc9c;
-    transition: all 0.5s;
-    &:hover {
-      text-shadow: 4px 5px 9px rgba(25, 181, 150, 0.3);
-    }
-  }
-`;
-
-export { ArticleWrapper, Time, Tags, Title, ReadMore, Content };
+export { ArticleWrapper, Time, Tags, Title, Content };

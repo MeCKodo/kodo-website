@@ -1,23 +1,26 @@
 import React from 'react';
-import Link from 'next/link';
 
-import { ArticleWrapper, Time, Tags, Title, ReadMore, Content } from './style';
+import { ArticleWrapper, Time, Tags, Title, Content } from './style';
 
-class Article extends React.Component<any> {
+type ArticleProps = {
+  title: string;
+  ctime: string;
+  before?: React.ReactNode | JSX.Element;
+  after?: React.ReactNode | JSX.Element;
+};
+
+class Article extends React.Component<ArticleProps> {
   render() {
-    const { title = 'title', ctime = 'sdf' } = this.props;
+    const { before, after, title = 'title', ctime = 'sdf' } = this.props;
 
     return (
       <ArticleWrapper>
+        {before}
         <Time>{ctime}</Time>
         <Title>{title}</Title>
         <Tags>tags</Tags>
         <Content>sdfsdfsdfsdf</Content>
-        <ReadMore>
-          <Link href="/detail/123?id=123123" as="/detail">
-            <a>阅读更多</a>
-          </Link>
-        </ReadMore>
+        {after}
       </ArticleWrapper>
     );
   }

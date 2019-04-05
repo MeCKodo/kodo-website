@@ -8,7 +8,9 @@ const port = parseInt(String(process.env.PORT), 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev, dir: './client' });
 const handle = app.getRequestHandler();
-
+type a = {
+  article: string;
+};
 app.prepare().then(() => {
   createConnection().then(() => {
     const server = new Koa();

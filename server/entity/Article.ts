@@ -16,4 +16,7 @@ export class ArticleEntity {
 
   @Column()
   ctime: string;
+
+  @Column({ name: 'url_alias' })
+  urlAlias: string;
 }

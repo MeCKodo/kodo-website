@@ -20,7 +20,7 @@ class ArticleModel extends BaseModel<ArticleEntity> {
 
   private _getArticleList(page: number, size: number) {
     return this.db.find({
-      select: ['ctime', 'title'],
+      // select: ['ctime', 'title'],
       skip: (page - 1) * size,
       take: size,
       order: {
