@@ -9,18 +9,22 @@ type Props = {
   total: number;
 };
 
-export default class extends Component<Props, Props> {
+type State = {
+  articlesState: any;
+};
+
+export default class extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      articles: [],
-      total: 0,
+      articlesState: null,
+      // total: 0,
     };
   }
 
   static async getInitialProps() {
     const res = await await axios.get<Props>(
-      'http://localhost:3000/article/list?page=1&size=5',
+      'http://localhost:3000/article/list?page=1&size=10',
     );
     const { articles, total } = res.data;
 
@@ -30,24 +34,27 @@ export default class extends Component<Props, Props> {
     };
   }
 
-  getArticles = async (page: number = 1, size: number = 15) => {
+  getArticles = async (page: number = 1, size: number = 10) => {
     const res = await axios.get<Props>(
       `http://localhost:3000/article/list?page=${page}&size=${size}`,
     );
-    const { articles, total } = res.data;
+    const { articles } = res.data;
+    console.log('get article', page, articles);
     this.setState({
-      articles,
-      total,
+      articlesState: articles,
     });
+    window.scrollTo(0, 0);
   };
 
   render() {
+    const { articlesState } = this.state;
     const { articles, total } = this.props;
     console.log(articles, total, '---');
+
     return (
       <>
         <ArticleWrapper>
-          {articles.map((article: any) => {
+          {(articlesState || articles).map((article: any) => {
             return <Article key={article.id} {...article} />;
           })}
         </ArticleWrapper>

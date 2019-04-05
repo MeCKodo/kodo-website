@@ -43,20 +43,21 @@ type State = {
   totalPage: number;
 };
 
-const PAGE_SIZE = 15;
+const PAGE_SIZE = 10;
 
 class Pagination extends Component<Prop, State> {
   constructor(props: Prop) {
     super(props);
     this.state = {
       current: 1,
-      totalPage: Math.round(props.total / PAGE_SIZE),
+      totalPage: Math.ceil(props.total / PAGE_SIZE),
     };
   }
 
   nextPage = () => {
     const { current, totalPage } = this.state;
     if (current === totalPage) return;
+
     this.setState({
       current: current + 1,
     });
@@ -67,6 +68,9 @@ class Pagination extends Component<Prop, State> {
     const { current } = this.state;
     if (current === 1) return;
 
+    this.setState({
+      current: current - 1,
+    });
     this.props.onChange(current - 1);
   };
 
