@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NextContext } from 'next';
 import { Component } from 'react';
-// import axios from "axios";
+import axios from 'axios';
 import { Article } from '../components/Article';
 
 type Props = {
@@ -10,12 +10,14 @@ type Props = {
 };
 
 export default class extends Component<Props> {
-  static getInitialProps({ query }: NextContext) {
+  static async getInitialProps({ query }: NextContext) {
     console.log('SLUG--------', query);
     // eslint-disable-next-line no-undef
-    // const res = await axios.get("http://localhost:3001/articles?page=1");
+    const res = await axios.get(
+      `http://localhost:3000/article/detail/${query.id}`,
+    );
     // const { articles } = res.data;
-    // console.log(c, "------c");
+    console.log(res.data, '------c');
     // console.log('???SDfsdfsdfsdfsdfs');
     return {
       article: {},

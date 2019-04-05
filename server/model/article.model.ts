@@ -1,4 +1,3 @@
-import { ObjectID } from 'typeorm';
 import { inject } from '../DI';
 import BaseModel from './base.model';
 import { ArticleEntity } from '../entity/Article';
@@ -29,8 +28,8 @@ class ArticleModel extends BaseModel<ArticleEntity> {
     });
   }
 
-  async getArticleDetail(id: ObjectID) {
-    return await this.db.find({ id });
+  async getArticleDetail(urlAlias: string) {
+    return await this.db.findOne({ where: { url_alias: urlAlias } });
   }
 }
 
