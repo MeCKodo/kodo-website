@@ -43,25 +43,29 @@ type State = {
   totalPage: number;
 };
 
+const PAGE_SIZE = 15;
+
 class Pagination extends Component<Prop, State> {
   constructor(props: Prop) {
     super(props);
     this.state = {
       current: 1,
-      totalPage: Math.round(props.total / 15),
+      totalPage: Math.round(props.total / PAGE_SIZE),
     };
   }
 
   nextPage = () => {
     const { current, totalPage } = this.state;
-    if (current > totalPage) return;
-
+    if (current === totalPage) return;
+    this.setState({
+      current: current + 1,
+    });
     this.props.onChange(current + 1);
   };
 
   prevPage = () => {
     const { current } = this.state;
-    if (current < 1) return;
+    if (current === 1) return;
 
     this.props.onChange(current - 1);
   };
@@ -78,7 +82,7 @@ class Pagination extends Component<Prop, State> {
   };
 
   render() {
-    const { totalPage } = this.state;
+    const { totalPage, current } = this.state;
     return (
       <Wrapper>
         <Button onClick={this.prevPage}>上一页</Button>
@@ -91,7 +95,9 @@ class Pagination extends Component<Prop, State> {
             defaultValue={String(current)}
           />
           <span>/</span> */}
-          <div>共{totalPage}页</div>
+          <div>
+            {current}/{totalPage}页
+          </div>
         </Pages>
         <Button onClick={this.nextPage}>下一页</Button>
       </Wrapper>
