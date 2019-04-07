@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Article } from '../components/Article';
 
 type Props = {
-  article: any;
+  detail: any;
 };
 
 export default class extends Component<Props> {
@@ -20,13 +20,13 @@ export default class extends Component<Props> {
     console.log(res.data, '------c');
     // console.log('???SDfsdfsdfsdfsdfs');
     return {
-      article: {},
+      detail: res.data,
     };
   }
 
   render() {
-    const { article } = this.props;
-    console.log(article, '---', this.props);
+    const { detail } = this.props;
+    console.log(detail, '--- detail props');
     return <Article title="sdf" ctime="123" />;
   }
 }

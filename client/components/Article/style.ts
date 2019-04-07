@@ -40,6 +40,7 @@ const Content = styled.div`
   text-align: left;
   padding: 10px;
   font-size: 16px;
+  word-break: break-word;
 `;
 
 export { ArticleWrapper, Time, Tags, Title, Content };

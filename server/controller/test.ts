@@ -17,14 +17,13 @@ a.get('/article/list', async (ctx: Koa.Context) => {
 });
 
 a.get('/article/detail/:urlAlias', async (ctx: Koa.Context) => {
-  // console.log(, '---contro params');
   const { urlAlias } = ctx.params;
   try {
     const articleModal: ArticleModal = ArticleModal.getInstance();
     const data = await articleModal.getArticleDetail(urlAlias);
     ctx.body = data;
   } catch (e) {
-    console.error(e, '----获取文章列表出错');
+    console.error(e, '----获取文章详情出错');
   }
 });
 
