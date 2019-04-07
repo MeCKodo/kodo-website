@@ -14,11 +14,7 @@ type ArticleProps = {
 
 class Article extends React.Component<ArticleProps> {
   componentDidMount() {
-    setTimeout(() => {
-      prism.highlightAll(false);
-    }, 100);
-    console.log(prism);
-    (window as any).prism = prism;
+    prism.highlightAll(false);
   }
   render() {
     const { before, after, title, ctime, badges, content } = this.props;
@@ -30,9 +26,9 @@ class Article extends React.Component<ArticleProps> {
         <Title>{title}</Title>
         <Tags>{badges.map((badge: string) => `#${badge}`)}</Tags>
         <Content
-          className="article"
+          className="article markdown-body"
           dangerouslySetInnerHTML={{
-            __html: marked(decodeURIComponent(content)),
+            __html: marked(decodeURIComponent(content)).substring(0, 200),
           }}
         />
         {after}
