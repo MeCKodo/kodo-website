@@ -1,7 +1,14 @@
 // import { NextContext } from "next";
 import { Component } from 'react';
 import axios from 'axios';
-import { Article, ArticleList, ReadMore } from '../components/Article';
+import marked from 'marked';
+
+import {
+  Article,
+  ArticleList,
+  ReadMore,
+  ListContent,
+} from '../components/Article';
 import Pagination from '../components/Pagination';
 
 type Props = {
@@ -50,14 +57,24 @@ export default class extends Component<Props, State> {
     const { articlesState } = this.state;
     const { articles, total } = this.props;
     // console.log(articles, total, '--- render');
-
+    console.log(articles);
     return (
       <>
         <ArticleList>
           {(articlesState || articles).map((article: any) => {
+            const html = marked(decodeURIComponent(article.content));
+
             return (
               <Article
                 after={<ReadMore objectId={article.id} as={article.urlAlias} />}
+                body={
+                  <ListContent
+                    className="article markdown-body"
+                    dangerouslySetInnerHTML={{
+                      __html: html,
+                    }}
+                  />
+                }
                 key={article.id}
                 {...article}
               />

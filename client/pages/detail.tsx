@@ -27,6 +27,6 @@ export default class extends Component<Props> {
   render() {
     const { detail } = this.props;
     console.log(detail, '--- detail props');
-    return <Article title="sdf" ctime="123" />;
+    return <Article {...detail} />;
   }
 }

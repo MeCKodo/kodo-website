@@ -43,4 +43,25 @@ const Content = styled.div`
   word-break: break-word;
 `;
 
-export { ArticleWrapper, Time, Tags, Title, Content };
+const ListContent = styled(Content)`
+  position: relative;
+  max-height: 320px;
+  overflow: hidden;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(
+      rgba(230, 230, 230, 0.11),
+      rgba(70, 70, 70, 0.08),
+      rgba(68, 68, 68, 0.12),
+      rgba(51, 51, 51, 0.17)
+    );
+    pointer-events: none;
+  }
+`;
+
+export { ArticleWrapper, Time, Tags, Title, Content, ListContent };
