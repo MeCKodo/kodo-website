@@ -57,7 +57,7 @@ export default class extends Component<Props, State> {
     const { articlesState } = this.state;
     const { articles, total } = this.props;
     // console.log(articles, total, '--- render');
-    console.log(articles);
+    // console.log(articles);
     return (
       <>
         <ArticleList>
@@ -66,6 +66,7 @@ export default class extends Component<Props, State> {
 
             return (
               <Article
+                key={article.id}
                 after={<ReadMore objectId={article.id} as={article.urlAlias} />}
                 body={
                   <ListContent
@@ -75,7 +76,6 @@ export default class extends Component<Props, State> {
                     }}
                   />
                 }
-                key={article.id}
                 {...article}
               />
             );

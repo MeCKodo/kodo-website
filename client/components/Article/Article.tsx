@@ -1,6 +1,6 @@
 import React from 'react';
 import prism from 'prismjs';
-// import marked from 'marked';
+
 import { ArticleWrapper, Time, Tags, Title } from './style';
 
 type ArticleProps = {
@@ -18,10 +18,6 @@ class Article extends React.Component<ArticleProps> {
   }
   render() {
     const { before, after, title, ctime, badges, body } = this.props;
-    // const html = decodeURIComponent(
-    //   encodeURIComponent(marked(decodeURIComponent(content))),
-    // ).substring(0, 100);
-    // console.log(html);
     return (
       <ArticleWrapper>
         {before}
@@ -29,12 +25,6 @@ class Article extends React.Component<ArticleProps> {
         <Title>{title}</Title>
         <Tags>{badges.map((badge: string) => `#${badge}`)}</Tags>
         {body}
-        {/* <Content
-          className="article markdown-body"
-          dangerouslySetInnerHTML={{
-            __html: content,
-          }}
-        /> */}
         {after}
       </ArticleWrapper>
     );
