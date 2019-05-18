@@ -6,7 +6,6 @@ type Options = {
 class Container {
   classMap = new Map<any, Options>();
   registerClass(Class: any, options: Options) {
-    console.log(Class, options);
     this.classMap.set(Class, options);
   }
 

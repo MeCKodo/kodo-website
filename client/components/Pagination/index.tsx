@@ -77,7 +77,6 @@ class Pagination extends Component<Prop, State> {
   jumpPage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value);
     const { totalPage } = this.state;
-    console.log(val, '---val');
     if (typeof val !== 'number' || val > totalPage || val < 1) {
       alert('你不要给我搞事情？');
       return;

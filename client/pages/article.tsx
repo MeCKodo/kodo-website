@@ -13,9 +13,7 @@ type Props = {
 
 export default class extends Component<Props> {
   static async getInitialProps({ query }: NextContext) {
-    console.log('SLUG--------', query);
     const res = await http.get(`/article/detail/${query.id}`);
-    console.log(res.data, '------c');
     return {
       detail: res.data,
     };
@@ -23,7 +21,6 @@ export default class extends Component<Props> {
 
   render() {
     const { detail } = this.props;
-    console.log(detail, '--- detail props');
     const html = marked(decodeURIComponent(detail.content));
     return (
       <Article

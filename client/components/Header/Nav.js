@@ -124,9 +124,6 @@ class MyInfo extends Component {
   }
 }
 export default class extends Component {
-  mouseOver() {
-    console.log(1);
-  }
   render() {
     return (
       <Nav>

@@ -41,7 +41,6 @@ export default class extends Component<Props, State> {
       `/article/list?page=${page}&size=${size}`,
     );
     const { articles } = res.data;
-    console.log('get article', page, articles);
     this.setState({
       articlesState: articles,
     });
@@ -51,8 +50,6 @@ export default class extends Component<Props, State> {
   render() {
     const { articlesState } = this.state;
     const { articles, total } = this.props;
-    // console.log(articles, total, '--- render');
-    // console.log(articles);
     return (
       <>
         <ArticleList>
