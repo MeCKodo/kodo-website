@@ -7,7 +7,7 @@
     "dev": "nodemon",
     "build": "next build client && tsc --project tsconfig.server.json",
     "postinstall": "npm run build",
-    "start": "NODE_ENV=production node .next/production-server/server.js"
+    "start": "NODE_ENV=production node ./dist/server.js"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
