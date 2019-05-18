@@ -2,9 +2,9 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import ArticleModal from '../model/article.model';
 
-const a = new Router();
+const router = new Router();
 
-a.get('/article/list', async (ctx: Koa.Context) => {
+router.get('/article/list', async (ctx: Koa.Context) => {
   const { page, size } = ctx.query;
 
   try {
@@ -16,7 +16,7 @@ a.get('/article/list', async (ctx: Koa.Context) => {
   }
 });
 
-a.get('/article/detail/:urlAlias', async (ctx: Koa.Context) => {
+router.get('/article/detail/:urlAlias', async (ctx: Koa.Context) => {
   const { urlAlias } = ctx.params;
   try {
     const articleModal: ArticleModal = ArticleModal.getInstance();
@@ -27,4 +27,4 @@ a.get('/article/detail/:urlAlias', async (ctx: Koa.Context) => {
   }
 });
 
-export default a;
+export default router;

@@ -2,27 +2,19 @@ import { createConnection } from 'typeorm';
 import * as Koa from 'koa';
 import * as next from 'next';
 import * as Router from 'koa-router';
-import a from './server/controller/test';
+import article from './server/controller/article';
 
 const port = parseInt(String(process.env.PORT), 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev, dir: './client' });
 const handle = app.getRequestHandler();
-type a = {
-  article: string;
-};
+
 app.prepare().then(() => {
   createConnection().then(() => {
     const server = new Koa();
     const router = new Router();
 
-    server.use(a.routes());
-
-    router.get('/json', async ctx => {
-      // await app.render(ctx.req, ctx.res, "/a", ctx.query);
-      // ctx.respond = false;
-      ctx.body = { name: '123' };
-    });
+    server.use(article.routes());
 
     router.get('/article/:id', async ctx => {
       await app.render(ctx.req, ctx.res, '/article', ctx.params);
