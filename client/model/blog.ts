@@ -1,5 +1,5 @@
 type ArticleModel = {
-  url_alias: string;
+  urlAlias: string;
   ctime: string;
   content: string;
   title: string;
