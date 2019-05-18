@@ -8,12 +8,13 @@ type RequestConfig = {
 };
 
 class Http {
+  static baseURL = 'http://localhost:3000';
   async _request<T>(config: RequestConfig) {
     const { method, url, data = null, options = {} } = config;
     const { headers, ...rest } = options;
 
     return await axios.request<T>({
-      url,
+      url: `${Http.baseURL}${url}`,
       data,
       method,
       headers: {
@@ -23,7 +24,7 @@ class Http {
     });
   }
 
-  get<T>(url: string, data: any) {
+  get<T>(url: string, data?: any) {
     return this._request<T>({
       url,
       data,
@@ -67,4 +68,6 @@ class Http {
   }
 }
 
-export default new Http();
+const local = new Http();
+
+export default local;

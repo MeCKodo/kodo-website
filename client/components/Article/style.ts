@@ -54,12 +54,6 @@ const ListContent = styled(Content)`
     left: 0;
     width: 100%;
     height: 40px;
-    background: linear-gradient(
-      rgba(230, 230, 230, 0.11),
-      rgba(70, 70, 70, 0.08),
-      rgba(68, 68, 68, 0.12),
-      rgba(51, 51, 51, 0.17)
-    );
     pointer-events: none;
   }
 `;

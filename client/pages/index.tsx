@@ -1,6 +1,5 @@
 // import { NextContext } from "next";
 import { Component } from 'react';
-import axios from 'axios';
 import marked from 'marked';
 
 import {
@@ -8,31 +7,27 @@ import {
   ArticleList,
   ReadMore,
   ListContent,
-} from '../components/Article';
-import Pagination from '../components/Pagination';
+} from '@/components/Article';
+import Pagination from '@/components/Pagination';
+import http from '@/utils/http';
+import { ArticleModel } from '@/model/blog';
 
 type Props = {
-  articles: any;
+  articles: ArticleModel[];
   total: number;
 };
 
 type State = {
-  articlesState: any;
+  articlesState: ArticleModel[] | null;
 };
 
 export default class extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      articlesState: null,
-      // total: 0,
-    };
-  }
+  state = {
+    articlesState: null,
+  };
 
   static async getInitialProps() {
-    const res = await await axios.get<Props>(
-      'http://localhost:3000/article/list?page=1&size=10',
-    );
+    const res = await await http.get<Props>('/article/list?page=1&size=10');
     const { articles, total } = res.data;
 
     return {
@@ -42,8 +37,8 @@ export default class extends Component<Props, State> {
   }
 
   getArticles = async (page: number = 1, size: number = 10) => {
-    const res = await axios.get<Props>(
-      `http://localhost:3000/article/list?page=${page}&size=${size}`,
+    const res = await http.get<Props>(
+      `/article/list?page=${page}&size=${size}`,
     );
     const { articles } = res.data;
     console.log('get article', page, articles);

@@ -5,8 +5,9 @@
   "main": "next.config.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
-    "start": "NODE_ENV=production node dist/index.js"
+    "build": "next build client && tsc --project tsconfig.server.json",
+    "postinstall": "npm run build",
+    "start": "NODE_ENV=production node .next/production-server/server.js"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",

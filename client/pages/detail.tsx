@@ -1,24 +1,21 @@
 import React from 'react';
-
 import { NextContext } from 'next';
 import { Component } from 'react';
-import axios from 'axios';
-import { Article } from '../components/Article';
+
+import marked from 'marked';
+import { Article, Content } from '@/components/Article';
+import { ArticleModel } from '@/model/blog';
+import http from '@/utils/http';
 
 type Props = {
-  detail: any;
+  detail: ArticleModel;
 };
 
 export default class extends Component<Props> {
   static async getInitialProps({ query }: NextContext) {
     console.log('SLUG--------', query);
-    // eslint-disable-next-line no-undef
-    const res = await axios.get(
-      `http://localhost:3000/article/detail/${query.id}`,
-    );
-    // const { articles } = res.data;
+    const res = await http.get(`/article/detail/${query.id}`);
     console.log(res.data, '------c');
-    // console.log('???SDfsdfsdfsdfsdfs');
     return {
       detail: res.data,
     };
@@ -27,6 +24,17 @@ export default class extends Component<Props> {
   render() {
     const { detail } = this.props;
     console.log(detail, '--- detail props');
-    return <Article {...detail} />;
+    const html = marked(decodeURIComponent(detail.content));
+    return (
+      <Article
+        {...detail}
+        body={
+          <Content
+            className="article markdown-body"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        }
+      />
+    );
   }
 }
