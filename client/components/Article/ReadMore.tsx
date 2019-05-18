@@ -26,7 +26,7 @@ const ReadMore = (props: ReadMoreProps) => {
   const { objectId, as } = props;
   return (
     <Wrapper>
-      <Link href={`/detail/:${objectId}`} as={`/detail/${as}`}>
+      <Link href={`/article/:${objectId}`} as={`/article/${as}`}>
         <a>阅读更多</a>
       </Link>
     </Wrapper>

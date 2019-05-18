@@ -24,8 +24,8 @@ app.prepare().then(() => {
       ctx.body = { name: '123' };
     });
 
-    router.get('/detail/:id', async ctx => {
-      await app.render(ctx.req, ctx.res, '/detail', ctx.params);
+    router.get('/article/:id', async ctx => {
+      await app.render(ctx.req, ctx.res, '/article', ctx.params);
       ctx.respond = false;
     });
 
