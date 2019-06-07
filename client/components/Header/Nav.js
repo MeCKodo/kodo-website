@@ -109,15 +109,12 @@ class MyInfo extends Component {
   };
   render() {
     return (
-      <MyAvatar
-        onMouseEnter={this.mouseOver}
-        url="https://sfault-avatar.b0.upaiyun.com/147/223/147223148-573297d0913c5_big64"
-      >
+      <MyAvatar onMouseEnter={this.mouseOver} url="/static/me.jpg">
         <figure />
         <span>订阅我</span>
         <Qrcode
           showQrcode={this.state.showQrcode}
-          qrcode="https://wx2.sinaimg.cn/mw690/a447e8fdgy1fy60dwpfclj20a309pgoh.jpg"
+          qrcode="/static/my-qrcode.jpg"
         />
       </MyAvatar>
     );
