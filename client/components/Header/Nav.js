@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import NextLink from 'next/link';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -70,9 +69,7 @@ const NavList = () => {
   return (
     <ul>
       <NavLi>
-        <NextLink href="/">
-          <a>首页</a>
-        </NextLink>
+        <a href="http://www.meckodo.com">首页</a>
       </NavLi>
       <NavLi>
         <a href="https://github.com/MeCKodo/myDemo" target="_blank">
