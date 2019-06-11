@@ -2,6 +2,7 @@ import { createConnection } from 'typeorm';
 import * as Koa from 'koa';
 import * as next from 'next';
 import * as Router from 'koa-router';
+import * as cors from '@koa/cors';
 import article from './server/controller/article';
 
 const port = parseInt(String(process.env.PORT), 10) || 3000;
@@ -14,6 +15,7 @@ app.prepare().then(() => {
     const server = new Koa();
     const router = new Router();
 
+    server.use(cors());
     server.use(article.routes());
 
     router.get('/article/:id', async ctx => {

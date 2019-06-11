@@ -8,7 +8,7 @@ type RequestConfig = {
 };
 
 class Http {
-  static baseURL = 'http://localhost:3000';
+  static baseURL = 'http://www.meckodo.com';
   async _request<T>(config: RequestConfig) {
     const { method, url, data = null, options = {} } = config;
     const { headers, ...rest } = options;
