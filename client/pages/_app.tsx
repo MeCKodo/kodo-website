@@ -21,6 +21,15 @@ export default class MyApp extends App {
       <Container>
         <Head>
           <title>二哲 | 为了想保护的人而努力</title>
+          <meta name="keywords" content="二哲,meckodo,前端工程师,nodeJS" />
+          <meta
+            name="description"
+            content="像我这样毫无能力又没有色彩的人 ,也就只能在失去中成长了吧"
+          />
+          <meta
+            name="viewport"
+            content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+          />
         </Head>
         <Header />
         <Banner />
