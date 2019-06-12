@@ -7,8 +7,8 @@ class Footer extends Component {
       <style.Footer>
         <style.CopyRight>
           <p>
-            Copyright © 2014-2017 二哲. All Rights Reserved. <br /> Powered by
-            Next.js + MongoDB
+            Copyright © 2014-{new Date().getFullYear()} 二哲. All Rights
+            Reserved. <br /> Powered by Next.js + MongoDB
           </p>
         </style.CopyRight>
         <style.Superise>
