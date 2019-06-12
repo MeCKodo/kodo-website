@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
@@ -18,6 +19,9 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
+        <Head>
+          <title>二哲 | 为了想保护的人而努力</title>
+        </Head>
         <Header />
         <Banner />
         <Main>

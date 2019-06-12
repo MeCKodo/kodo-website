@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextContext } from 'next';
 import { Component } from 'react';
-
+import Head from 'next/head';
 import marked from 'marked';
 import { Article, Content } from '@/components/Article';
 import { ArticleModel } from '@/model/blog';
@@ -23,15 +23,20 @@ export default class extends Component<Props> {
     const { detail } = this.props;
     const html = marked(decodeURIComponent(detail.content));
     return (
-      <Article
-        {...detail}
-        body={
-          <Content
-            className="article markdown-body"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        }
-      />
+      <>
+        <Head>
+          <title>{detail.title}</title>
+        </Head>
+        <Article
+          {...detail}
+          body={
+            <Content
+              className="article markdown-body"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          }
+        />
+      </>
     );
   }
 }
