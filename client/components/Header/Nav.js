@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, useEffect, useState } from 'react';
 import { Nav, NavLi, MyAvatar, MyQrcode } from './style';
 
 const NavList = () => {
