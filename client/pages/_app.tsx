@@ -37,6 +37,9 @@ export default class MyApp extends App {
           <Component {...pageProps} />
         </Main>
         <Footer />
+        <div style={{display: 'none'}}>
+        <script type="text/javascript" src="https://s5.cnzz.com/z_stat.php?id=1277765555&web_id=1277765555"></script>
+        </div>
       </Container>
     );
   }
