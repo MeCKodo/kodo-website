@@ -12,6 +12,9 @@ const Main = styled.main`
   width: 90%;
   max-width: 950px;
   margin: 0 auto;
+  @media only screen and (max-width: 640px) {
+    width: 100%;
+  }
 `;
 
 export default class MyApp extends App {
@@ -37,8 +40,11 @@ export default class MyApp extends App {
           <Component {...pageProps} />
         </Main>
         <Footer />
-        <div style={{display: 'none'}}>
-        <script type="text/javascript" src="https://s5.cnzz.com/z_stat.php?id=1277765555&web_id=1277765555"></script>
+        <div style={{ display: 'none' }}>
+          <script
+            type="text/javascript"
+            src="https://s5.cnzz.com/z_stat.php?id=1277765555&web_id=1277765555"
+          />
         </div>
       </Container>
     );

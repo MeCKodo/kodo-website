@@ -3,9 +3,9 @@ import { NextContext } from 'next';
 import { Component } from 'react';
 import Head from 'next/head';
 import marked from 'marked';
-import { Article, Content } from '@/components/Article';
-import { ArticleModel } from '@/model/blog';
 import http from '@/utils/http';
+import { Article, Content, ArticleFooter, Text } from '@/components/Article';
+import { ArticleModel } from '@/model/blog';
 
 type Props = {
   detail: ArticleModel;
@@ -34,6 +34,15 @@ export default class extends Component<Props> {
               className="article markdown-body"
               dangerouslySetInnerHTML={{ __html: html }}
             />
+          }
+          after={
+            <ArticleFooter>
+              <img
+                style={{ maxWidth: '200px', display: 'inline-block' }}
+                src="/static/my-qrcode.jpg"
+              />
+              <Text>我是二哲，一个「伪作家」</Text>
+            </ArticleFooter>
           }
         />
       </>
